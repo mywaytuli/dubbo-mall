@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.tuli.dmall.core.user.mapper.UserMapper">
+
+	<resultMap id="beanMap" type="com.tuli.dmall.facade.user.entity.User">
+		<id property="id" column="vc_id" />
+		<result property="name" column="vc_name" />
+		<result property="account" column="vc_account" />
+		<result property="pwd" column="vc_pwd" />
+		<result property="phone" column="vc_phone" />
+		<result property="email" column="vc_email" />
+		<result property="sex" column="f_sex" />
+		<result property="address" column="vc_address" />
+		<result property="createTime" column="d_create_time" />
+	</resultMap>
+
+	<insert id="insert" parameterType="com.tuli.dmall.facade.user.entity.User" keyProperty="id" useGeneratedKeys="true">
+		insert into
+		d_user
+		(vc_id, vc_name, vc_account, vc_pwd, vc_phone, vc_email, f_sex, vc_address, d_create_time)
+		values (REPLACE(UUID(), '-', ''), #{name}, #{account}, #{pwd},
+		#{phone}, #{email}, #{sex}, #{address}, NOW())
+	</insert>
+
+	<!-- 更新:version+1 实现乐观锁 -->
+	<update id="update" parameterType="com.tuli.dmall.facade.user.entity.User">
+		update
+		d_user
+		<set>
+			vc_name = #{name} ,
+			vc_pwd = #{pwd},
+			vc_phone = #{phone},
+			vc_email = #{email},
+			f_sex=#{sex},
+			vc_address = #{address}
+		</set>
+		<where>
+			vc_id = #{id}
+		</where>
+	</update>
+
+	<select id="listBy" parameterType="java.util.Map" resultMap="beanMap">
+		select * from
+		d_user
+		<where>
+			<if test="account != null and account !='' "> and vc_account = #{account}</if>
+			<if test="id != null and id !='' "> and vc_id = #{id}</if>
+			<!-- 是否行锁，要放在查询条件最后 -->
+			<if test="isPessimist != null and isPessimist == true "> for update</if>
+		</where>
+	</select>
+
+	<select id="getById" parameterType="string" resultMap="beanMap">
+		select * from
+		d_user
+		where vc_id = #{id}
+	</select>
+	
+</mapper>

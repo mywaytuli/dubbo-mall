@@ -1,0 +1,12 @@
+CREATE TABLE `d_user` (
+  `vc_id` VARCHAR(32) NOT NULL,
+  `vc_name` VARCHAR(45) DEFAULT NULL,
+  `vc_account` VARCHAR(45) DEFAULT NULL,
+  `vc_pwd` VARCHAR(200) DEFAULT NULL,
+  `vc_phone` VARCHAR(20) DEFAULT NULL,
+  `vc_email` VARCHAR(40) DEFAULT NULL,
+  `f_sex` INT(2) DEFAULT NULL,
+  `vc_address` VARCHAR(200) DEFAULT NULL,
+  `d_create_time` DATETIME DEFAULT NULL,
+  PRIMARY KEY (`vc_id`)
+) ENGINE=INNODB DEFAULT CHARSET=utf8
