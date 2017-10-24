@@ -12,7 +12,7 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
 /**
- * Created by tuli on 2017/5/31.
+ * Created by tuli on 2017/5/31
  */
 public class CryptUtil {
     private static final Log LOGGER = LogFactory.getLog(CryptUtil.class);
