@@ -30,7 +30,7 @@ public class TestUserQuery extends TestCase {
 	}
 
 	public void testA() {
-		User user = userQueryService.getUserByAccount("tuli");
+		User user = userQueryService.getUserByAccount("tuli", null);
 		System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
 		System.out.println(JSONObject.toJSONString(user));
 	}

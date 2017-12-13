@@ -14,7 +14,7 @@
     <version>${dmall-common-core.version}</version>
     <packaging>jar</packaging>
 
-    <name>dmall-common-core</name>
+    <name>${project.artifactId}</name>
     <url>http://maven.apache.org</url>
 
     <properties>

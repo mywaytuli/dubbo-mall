@@ -28,8 +28,8 @@ public class TestUserManager extends TestCase {
 
 	public void testCreateAccount() {
 		User user = new User();
-		user.setAccount("tuli");
-		user.setName("涂立");
+		user.setAccount("tuli2");
+		user.setName("涂立4");
 		user.setPwd(CryptUtil.sha1("123456"));
 		boolean result = userManagerService.insert(user);
 		System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");

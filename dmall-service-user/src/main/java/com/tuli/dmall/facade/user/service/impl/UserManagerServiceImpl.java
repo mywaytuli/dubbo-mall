@@ -6,6 +6,8 @@ import com.tuli.dmall.facade.user.service.UserManagerService;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.transaction.interceptor.TransactionAspectSupport;
 
 import javax.annotation.Resource;
 
@@ -26,6 +28,7 @@ public class UserManagerServiceImpl implements UserManagerService {
             userMapper.insert(user);
         } catch (Exception e) {
             log.error(e.getMessage());
+//            TransactionAspectSupport.currentTransactionStatus().setRollbackOnly();
             return false;
         }
         return true;

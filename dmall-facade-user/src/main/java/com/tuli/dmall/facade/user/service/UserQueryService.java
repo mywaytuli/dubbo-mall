@@ -7,6 +7,6 @@ import com.tuli.dmall.facade.user.entity.User;
  */
 public interface UserQueryService {
 
-    User getUserByAccount(String account);
+    User getUserByAccount(String account, String pwd);
 
 }

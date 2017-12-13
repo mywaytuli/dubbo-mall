@@ -6,7 +6,7 @@
             http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
 
 	<!-- 提供方应用信息，用于计算依赖关系 -->
-	<dubbo:application name="pay-service-account" />
+	<dubbo:application name="dmall-service-user" />
 
 	<!-- 使用zookeeper注册中心暴露服务地址 -->
 	<dubbo:registry protocol="zookeeper" address="${dubbo.registry.address}" />
@@ -25,6 +25,8 @@
 	<!-- 账户管理 -->
 	<dubbo:service retries="0" interface="com.tuli.dmall.facade.user.service.UserManagerService" ref="userManagerService" />
 	<!-- 账户查询 -->
-	<dubbo:service retries="0" interface="com.tuli.dmall.facade.user.service.UserQueryService" ref="userQueryService" />
+	<dubbo:service retries="1" interface="com.tuli.dmall.facade.user.service.UserQueryService" ref="userQueryService" />
+	<!-- 菜单查询 -->
+	<dubbo:service retries="1" interface="com.tuli.dmall.facade.user.service.MenuQueryService" ref="menuQueryService" />
 
 </beans>  

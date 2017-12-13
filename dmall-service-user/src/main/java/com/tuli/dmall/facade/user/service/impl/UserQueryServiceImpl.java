@@ -4,6 +4,7 @@ import com.google.common.collect.Maps;
 import com.tuli.dmall.core.user.mapper.UserMapper;
 import com.tuli.dmall.facade.user.entity.User;
 import com.tuli.dmall.facade.user.service.UserQueryService;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.stereotype.Component;
@@ -24,12 +25,16 @@ public class UserQueryServiceImpl implements UserQueryService {
     private UserMapper userMapper;
 
     @Override
-    public User getUserByAccount(String account) {
+    public User getUserByAccount(String account, String pwd) {
         Map<String, Object> paramMap = Maps.newHashMap();
-        paramMap.put("account", account);
+        if(StringUtils.isNotBlank(account))
+            paramMap.put("account", account);
+        if(StringUtils.isNotBlank(pwd))
+            paramMap.put("pwd", pwd);
         List<User> userList = userMapper.listBy(paramMap);
         if(userList.isEmpty())
             return null;
         return userList.get(0);
     }
+
 }

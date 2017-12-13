@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.tuli.dmall.core.user.mapper.MenuMapper">
+
+	<select id="getMenuList" parameterType="String" resultType="com.tuli.dmall.facade.user.entity.Menu">
+		SELECT m.vc_id id,
+			m.vc_name NAME,
+			m.vc_url url,
+			m.vc_icon icon,
+			m.vc_parentid parentId,
+			m.vc_rank rank,
+			CASE
+			WHEN (SELECT COUNT(1) FROM d_menu dm WHERE dm.vc_parentid=m.vc_id) > 0 THEN '1'
+			ELSE '0'
+			END hasChild
+			FROM d_menu m ORDER BY m.vc_rank asc
+	</select>
+
+</mapper>

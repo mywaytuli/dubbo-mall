@@ -14,7 +14,7 @@
     <version>${dmall-common-web.version}</version>
     <packaging>jar</packaging>
 
-    <name>dmall-common-web</name>
+    <name>${project.artifactId}</name>
     <url>http://maven.apache.org</url>
 
     <properties>
@@ -32,19 +32,16 @@
         <dependency>
             <groupId>joda-time</groupId>
             <artifactId>joda-time</artifactId>
-            <version>${joda-time.version}</version>
         </dependency>
         <!--Sql解析工具jsqlparser-->
         <dependency>
             <groupId>com.github.jsqlparser</groupId>
             <artifactId>jsqlparser</artifactId>
-            <version>${jsqlparser.version}</version>
         </dependency>
         <!-- solr客户端 -->
         <dependency>
             <groupId>org.apache.solr</groupId>
             <artifactId>solr-solrj</artifactId>
-            <version>${solrj.version}</version>
         </dependency>
         <dependency>
             <groupId>antlr</groupId>
@@ -135,6 +132,30 @@
             <artifactId>slf4j-log4j12</artifactId>
         </dependency>
         <!-- Common Dependency End -->
+
+        <!-- json object to java object -->
+
+        <dependency>
+            <groupId>org.codehaus.jackson</groupId>
+            <artifactId>jackson-core-asl</artifactId>
+            <version>1.9.11</version>
+        </dependency>
+        <dependency>
+            <groupId>org.codehaus.jackson</groupId>
+            <artifactId>jackson-core-lgpl</artifactId>
+            <version>1.9.11</version>
+        </dependency>
+        <dependency>
+            <groupId>org.codehaus.jackson</groupId>
+            <artifactId>jackson-mapper-asl</artifactId>
+            <version>1.9.11</version>
+        </dependency>
+        <dependency>
+            <groupId>org.codehaus.jackson</groupId>
+            <artifactId>jackson-mapper-lgpl</artifactId>
+            <version>1.9.11</version>
+        </dependency>
+        <!-- json object to java object end-->
 
         <!-- Spring Dependency Begin -->
         <dependency>

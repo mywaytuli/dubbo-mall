@@ -44,6 +44,7 @@
 		d_user
 		<where>
 			<if test="account != null and account !='' "> and vc_account = #{account}</if>
+			<if test="pwd != null and pwd !='' "> and vc_pwd = #{pwd}</if>
 			<if test="id != null and id !='' "> and vc_id = #{id}</if>
 			<!-- 是否行锁，要放在查询条件最后 -->
 			<if test="isPessimist != null and isPessimist == true "> for update</if>

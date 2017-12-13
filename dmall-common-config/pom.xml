@@ -14,7 +14,7 @@
     <version>${dmall-common-config.version}</version>
     <packaging>jar</packaging>
 
-    <name>dmall-common-config</name>
+    <name>${project.artifactId}</name>
     <url>http://maven.apache.org</url>
 
     <properties>

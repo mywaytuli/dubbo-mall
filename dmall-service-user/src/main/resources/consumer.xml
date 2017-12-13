@@ -15,4 +15,5 @@
     <!-- 账户子系统对外服务接口 -->
 	<dubbo:reference interface="com.tuli.dmall.facade.user.service.UserManagerService" id="userManagerService" />
     <dubbo:reference interface="com.tuli.dmall.facade.user.service.UserQueryService" id="userQueryService" />
+    <dubbo:reference interface="com.tuli.dmall.facade.user.service.MenuQueryService" id="menuQueryService" />
 </beans>
